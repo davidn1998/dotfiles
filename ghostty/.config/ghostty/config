@@ -23,5 +23,9 @@ palette = 15=#ebdbb2
 
 background-opacity = 0.9
 
+window-padding-x = 4
+window-padding-y = 2
+macos-titlebar-style = tabs
+
 font-family = Fira Code
 font-size = 13
