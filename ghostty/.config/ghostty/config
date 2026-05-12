@@ -21,5 +21,7 @@ palette = 13=#d3869b
 palette = 14=#8ec07c
 palette = 15=#ebdbb2
 
+background-opacity = 0.9
+
 font-family = Fira Code
 font-size = 13
