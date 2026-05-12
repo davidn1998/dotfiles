@@ -30,6 +30,36 @@ exec zsh
 - `update` — update packages and relink dotfiles
 - `bootstrap` — full system setup (macOS or Linux)
 
+## Aliases
+
+| Alias | Command |
+|-------|---------|
+| `..`, `...`, `....` | `cd ..`, `cd ../..`, `cd ../../..` |
+| `~` | `cd ~` |
+| `dt`, `dl`, `pj` | `cd ~/Desktop`, `~/Downloads`, `~/Projects` |
+| `dotfiles` | `cd ~/dotfiles` |
+| `gr` | `cd` to git root |
+| `e` | `$EDITOR` |
+| `reload` | `exec zsh` |
+| `ls` | `eza --icons --group-directories-first` |
+| `ll` | `eza -lah --icons --git` |
+| `la` | `eza -la --icons` |
+| `l` | `eza -l --icons` |
+| `lt`, `tree` | `eza --tree --icons` |
+| `cat` | `bat` |
+| `cd` | `z` (zoxide) |
+| `gs`, `ga`, `gc`, `gp` | `git status`, `add`, `commit`, `push` |
+| `gl` | `git log --oneline --graph --decorate --all` |
+| `gd`, `gco`, `gb` | `git diff`, `checkout`, `branch` |
+| `clr` | `clear` |
+| `path` | Print `$PATH` line by line |
+| `myip` | `curl ifconfig.me` |
+| `rm` | `trash` (safer) |
+| `lg` | `lazygit` |
+| `md` | `glow -p` |
+| `oc` | `opencode` |
+| `help` | `tldr` |
+
 ## macOS
 
 The `mac/Brewfile` contains all Homebrew formulae and casks. On a fresh Mac, `bootstrap` handles Homebrew installation and runs `brew bundle --cleanup` automatically.
