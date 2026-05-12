@@ -2,14 +2,22 @@
 # Homebrew
 # ------------------------------------------------------------------------------
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 # ------------------------------------------------------------------------------
 # Node (nvm only)
 # ------------------------------------------------------------------------------
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  source "/opt/homebrew/opt/nvm/nvm.sh"
+elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+  source "/usr/local/opt/nvm/nvm.sh"
+fi
 
 # ------------------------------------------------------------------------------
 # fzf
