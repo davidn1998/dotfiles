@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+DOTFILES_DIR="${DOTFILES_DIR:-"$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"}"
+
 echo "🍎 macOS setup starting..."
 
 # ---------------------------------------------------------------------------
