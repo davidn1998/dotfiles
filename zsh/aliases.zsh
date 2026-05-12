@@ -96,4 +96,5 @@ fi
 # -------------------------
 _exists lazygit && alias lg='lazygit'
 _exists glow && alias md='glow -p'
+_exists opencode && alias oc='opencode'
 _exists tldr && alias help='tldr'
