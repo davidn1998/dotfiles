@@ -1,0 +1,6 @@
+*.zwc
+.zcompdump*
+.DS_Store
+*.log
+.zsh_history
+.viminfo

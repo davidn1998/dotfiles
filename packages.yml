@@ -1,0 +1,17 @@
+cli:
+  - git
+  - neovim
+  - fzf
+  - ripgrep
+  - fd
+  - bat
+  - eza
+  - zoxide
+
+tools:
+  - tmux
+  - gh
+  - lazygit
+
+fonts:
+  - fira-code

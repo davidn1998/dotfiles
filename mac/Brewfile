@@ -1,0 +1,114 @@
+# ==============================================================================
+# CORE SYSTEM
+# ==============================================================================
+brew "git"
+brew "stow"
+brew "wget"
+brew "coreutils"
+brew "ca-certificates"
+
+# ==============================================================================
+# SHELL + TERMINAL EXPERIENCE
+# ==============================================================================
+brew "starship"
+brew "zsh-completions"
+brew "zsh-async"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "zsh-history-substring-search"
+brew "fzf"
+brew "zoxide"
+brew "eza"
+brew "bat"
+brew "lsd"
+brew "ripgrep"
+brew "fd"
+brew "tree"
+brew "tree-sitter"
+brew "tmux"
+brew "lazygit"
+brew "git-delta"
+brew "glow"
+brew "tldr"
+brew "trash"
+
+# ==============================================================================
+# DEV ENVIRONMENT
+# ==============================================================================
+brew "neovim"
+brew "nvm"
+
+brew "python@3.14"
+brew "pipx"
+brew "rbenv"
+brew "ruby-build"
+
+brew "docker"
+brew "docker-completion"
+
+# ==============================================================================
+# LANGUAGES / LIBRARIES (kept minimal, dev-relevant only)
+# ==============================================================================
+brew "openssl@3"
+brew "readline"
+brew "sqlite"
+brew "libyaml"
+brew "libgit2"
+brew "libuv"
+brew "pkg-config"
+
+# ==============================================================================
+# DATABASES (keep if you actually use them)
+# ==============================================================================
+brew "postgresql@16"
+brew "mysql"
+
+# ==============================================================================
+# UTILITIES
+# ==============================================================================
+brew "gh"
+brew "mas"
+brew "terminal-notifier"
+brew "wifi-password"
+brew "opencode"
+
+# ==============================================================================
+# GUI APPLICATIONS
+# ==============================================================================
+cask "iterm2"
+cask "ghostty"
+cask "visual-studio-code"
+cask "raycast"
+cask "figma"
+cask "bitwarden"
+cask "alt-tab"
+cask "itsycal"
+cask "monitorcontrol"
+cask "stats"
+cask "dbeaver-community"
+
+# Media / Social
+cask "google-chrome"
+cask "spotify"
+cask "discord"
+cask "steam"
+cask "vlc"
+cask "keka"
+
+# ==============================================================================
+# FONTS
+# ==============================================================================
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+
+# ==============================================================================
+# QUICKLOOK PLUGINS
+# ==============================================================================
+cask "qlcolorcode"
+cask "qlstephen"
+cask "webpquicklook"
+
+# ==============================================================================
+# APP STORE
+# ==============================================================================
+mas "Pandan", id: 1569600264

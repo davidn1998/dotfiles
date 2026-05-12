@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export DOTFILES_DIR
+
+cd "$DOTFILES_DIR"
+
+OS="$(uname -s)"
+
+echo "🚀 Bootstrapping dotfiles..."
+echo "🖥 Detected OS: $OS"
+echo ""
+
+# ---------------------------------------------------------------------------
+# 1. System setup (brew, dependencies)
+# ---------------------------------------------------------------------------
+if [[ "$OS" == "Darwin" ]]; then
+  bash mac/install.sh
+elif [[ "$OS" == "Linux" ]]; then
+  bash scripts/linux.sh
+else
+  echo "❌ Unsupported OS: $OS"
+  exit 1
+fi
+
+# IMPORTANT: reload brew into current shell if needed
+if [[ "$OS" == "Darwin" && -f /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# ---------------------------------------------------------------------------
+# 2. Dotfiles linking (stow)
+# ---------------------------------------------------------------------------
+if command -v stow >/dev/null 2>&1; then
+  bash scripts/stow.sh
+else
+  echo "❌ stow not found (brew install failed or PATH issue)"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+# 3. Runtimes
+# ---------------------------------------------------------------------------
+bash scripts/node.sh
+
+echo ""
+echo "🎉 Bootstrap complete!"

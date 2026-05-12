@@ -1,0 +1,20 @@
+return {
+  {
+    "romus204/tree-sitter-manager.nvim",
+    opts = {
+      ensure_installed = {
+        "lua",
+        "vim",
+        "vimdoc",
+        "bash",
+        "javascript",
+        "typescript",
+        "python",
+        "json",
+        "html",
+        "css",
+      },
+      auto_install = true,
+    },
+  },
+}
