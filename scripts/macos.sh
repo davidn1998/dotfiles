@@ -12,7 +12,7 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 echo "📦 Installing Brew bundle..."
-brew bundle --file="$DOTFILES_DIR/Brewfile"
+brew bundle --cleanup --file="$DOTFILES_DIR/mac/Brewfile"
 
 echo ""
 echo "📦 Package layer (future abstraction)"

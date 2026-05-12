@@ -13,6 +13,6 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "📦 Installing Brew bundle..."
-brew bundle --file="$DOTFILES_DIR/mac/Brewfile"
+brew bundle --cleanup --file="$DOTFILES_DIR/mac/Brewfile"
 
 echo "✅ macOS setup complete"

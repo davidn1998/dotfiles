@@ -70,7 +70,7 @@ brew "gh"
 brew "mas"
 brew "terminal-notifier"
 brew "wifi-password"
-brew "opencode"
+brew "anomalyco/tap/opencode"
 
 # ==============================================================================
 # GUI APPLICATIONS

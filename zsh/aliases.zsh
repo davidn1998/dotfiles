@@ -60,7 +60,6 @@ fi
 # zoxide (better cd)
 # -------------------------
 if _exists zoxide; then
-  eval "$(zoxide init zsh)"
   alias cd='z'
 fi
 

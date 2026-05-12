@@ -33,7 +33,8 @@ echo ""
 # 2. Core tools via Brewfile
 # ---------------------------
 echo "📦 Installing Brew bundle..."
-brew bundle --file mac/Brewfile
+brew tap anomalyco/tap 2>/dev/null || true
+brew bundle --cleanup --file mac/Brewfile
 
 echo ""
 
