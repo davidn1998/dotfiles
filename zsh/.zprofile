@@ -5,4 +5,4 @@ elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 # Add .NET Core SDK tools
-export PATH="$PATH:/Users/david/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
