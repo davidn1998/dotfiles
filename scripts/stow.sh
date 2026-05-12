@@ -3,10 +3,10 @@ set -e
 
 echo "🔗 Linking dotfiles with stow..."
 
-stow zsh
-stow git
-stow vim
-stow nvim
-stow commit
+stow -R zsh
+stow -R git
+stow -R vim
+stow -R nvim
+stow -R commit
 
 echo "✅ Dotfiles linked"

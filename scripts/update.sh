@@ -17,9 +17,8 @@ fi
 
 # Dotfiles (relink everything safely)
 if command -v stow >/dev/null 2>&1; then
-  echo "🔗 Restowing dotfiles..."
   cd "$DOTFILES_DIR" || exit 1
-  stow -R zsh git nvim
+  bash scripts/stow.sh
 fi
 
 echo "♻️ Reloading shell..."

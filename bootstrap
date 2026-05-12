@@ -11,59 +11,35 @@ echo "🖥 Detected OS: $OS"
 echo ""
 
 # ---------------------------
-# 1. Homebrew
+# 1. OS-specific packages
 # ---------------------------
-if ! command -v brew >/dev/null 2>&1; then
-  echo "📦 Installing Homebrew..."
-
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-# IMPORTANT: make brew available immediately (this was your main failure point)
-if [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -x /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-
-echo "🍺 Brew ready: $(brew --version | head -n 1)"
-echo ""
-
-# ---------------------------
-# 2. Core tools via Brewfile
-# ---------------------------
-echo "📦 Installing Brew bundle..."
-brew tap anomalyco/tap 2>/dev/null || true
-brew bundle --cleanup --file mac/Brewfile
-
-echo ""
-
-# ---------------------------
-# 3. Ensure stow exists
-# ---------------------------
-if ! command -v stow >/dev/null 2>&1; then
-  echo "❌ stow missing after brew install"
+if [[ "$OS" == "Darwin" ]]; then
+  bash scripts/macos.sh
+elif [[ "$OS" == "Linux" ]]; then
+  bash scripts/linux.sh
+else
+  echo "❌ Unsupported OS: $OS"
   exit 1
 fi
 
-# ---------------------------
-# 4. Dotfiles linking (safe + repeatable)
-# ---------------------------
-echo "🔗 Stowing dotfiles..."
+echo ""
 
-stow -R zsh
-stow -R git
-stow -R nvim
+# ---------------------------
+# 2. Node (nvm + LTS)
+# ---------------------------
+bash scripts/node.sh
 
 echo ""
 
 # ---------------------------
-# 5. Shell environment refresh safety
+# 3. Dotfiles linking
 # ---------------------------
-export DOTFILES="$DOTFILES_DIR"
+bash scripts/stow.sh
+
+echo ""
 
 # ---------------------------
-# 6. Validation layer (THIS is what makes it foolproof)
+# 4. Validation
 # ---------------------------
 echo "🔍 Verifying install..."
 
