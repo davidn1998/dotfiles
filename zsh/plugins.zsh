@@ -14,6 +14,11 @@ source "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substrin
 eval "$(zoxide init zsh)"
 
 # --------------------------------------------
+# Autopair (auto-close brackets/quotes)
+# --------------------------------------------
+source "$(brew --prefix)/share/zsh-autopair/autopair.zsh"
+
+# --------------------------------------------
 # Syntax highlighting (MUST be last)
 # --------------------------------------------
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

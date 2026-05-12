@@ -11,6 +11,7 @@ brew "ca-certificates"
 # SHELL + TERMINAL EXPERIENCE
 # ==============================================================================
 brew "starship"
+brew "zsh-autopair"
 brew "zsh-completions"
 brew "zsh-async"
 brew "zsh-autosuggestions"
