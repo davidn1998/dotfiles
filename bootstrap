@@ -2,47 +2,82 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-export DOTFILES_DIR
-
 cd "$DOTFILES_DIR"
 
-OS="$(uname -s)"
-
 echo "🚀 Bootstrapping dotfiles..."
+
+OS="$(uname -s)"
 echo "🖥 Detected OS: $OS"
 echo ""
 
-# ---------------------------------------------------------------------------
-# 1. System setup (brew, dependencies)
-# ---------------------------------------------------------------------------
-if [[ "$OS" == "Darwin" ]]; then
-  bash mac/install.sh
-elif [[ "$OS" == "Linux" ]]; then
-  bash scripts/linux.sh
-else
-  echo "❌ Unsupported OS: $OS"
-  exit 1
+# ---------------------------
+# 1. Homebrew
+# ---------------------------
+if ! command -v brew >/dev/null 2>&1; then
+  echo "📦 Installing Homebrew..."
+
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# IMPORTANT: reload brew into current shell if needed
-if [[ "$OS" == "Darwin" && -f /opt/homebrew/bin/brew ]]; then
+# IMPORTANT: make brew available immediately (this was your main failure point)
+if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-# ---------------------------------------------------------------------------
-# 2. Dotfiles linking (stow)
-# ---------------------------------------------------------------------------
-if command -v stow >/dev/null 2>&1; then
-  bash scripts/stow.sh
-else
-  echo "❌ stow not found (brew install failed or PATH issue)"
+echo "🍺 Brew ready: $(brew --version | head -n 1)"
+echo ""
+
+# ---------------------------
+# 2. Core tools via Brewfile
+# ---------------------------
+echo "📦 Installing Brew bundle..."
+brew bundle --file mac/Brewfile
+
+echo ""
+
+# ---------------------------
+# 3. Ensure stow exists
+# ---------------------------
+if ! command -v stow >/dev/null 2>&1; then
+  echo "❌ stow missing after brew install"
   exit 1
 fi
 
-# ---------------------------------------------------------------------------
-# 3. Runtimes
-# ---------------------------------------------------------------------------
-bash scripts/node.sh
+# ---------------------------
+# 4. Dotfiles linking (safe + repeatable)
+# ---------------------------
+echo "🔗 Stowing dotfiles..."
+
+stow -R zsh
+stow -R git
+stow -R nvim
+
+echo ""
+
+# ---------------------------
+# 5. Shell environment refresh safety
+# ---------------------------
+export DOTFILES="$DOTFILES_DIR"
+
+# ---------------------------
+# 6. Validation layer (THIS is what makes it foolproof)
+# ---------------------------
+echo "🔍 Verifying install..."
+
+check() {
+  command -v "$1" >/dev/null 2>&1 && echo "✔ $1" || echo "❌ $1 missing"
+}
+
+check brew
+check git
+check stow
+check nvim
+check eza
+check zoxide
+check starship
 
 echo ""
 echo "🎉 Bootstrap complete!"
+echo "👉 Restart your terminal or run: exec zsh"
