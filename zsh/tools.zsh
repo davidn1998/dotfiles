@@ -15,7 +15,18 @@ export NVM_DIR="$HOME/.nvm"
 # fzf
 # ------------------------------------------------------------------------------
 
-[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+# fzf shell integration (cross-platform)
+if command -v fzf >/dev/null 2>&1; then
+  # Homebrew (macOS)
+  if command -v brew >/dev/null 2>&1 && [ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ]; then
+    source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+    source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+  # Linux (apt/pacman)
+  elif [ -f /usr/share/fzf/completion.zsh ]; then
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+  fi
+fi
 
 # ------------------------------------------------------------------------------
 # direnv

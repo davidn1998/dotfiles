@@ -26,5 +26,13 @@ elif [[ "$PM" == "pacman" ]]; then
     git neovim fzf ripgrep fd bat zoxide tmux curl wget unzip base-devel stow
 fi
 
+# Link dotfiles
+if command -v stow >/dev/null 2>&1; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  DOTFILES_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+  cd "$DOTFILES_DIR" || exit 1
+  bash scripts/stow.sh
+fi
+
 echo ""
 echo "✅ Linux setup complete"
