@@ -30,4 +30,13 @@ if ! command -v stow >/dev/null 2>&1; then
   exit 1
 fi
 
+# ---------------------------------------------------------------------------
+# iTerm2 preferences sync
+# ---------------------------------------------------------------------------
+if [ -d "$DOTFILES_DIR/iterm2" ]; then
+  defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES_DIR/iterm2"
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+  echo "🖥 iTerm2 configured to sync preferences from dotfiles"
+fi
+
 echo "✅ macOS setup complete"
