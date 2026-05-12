@@ -21,7 +21,9 @@ palette = 13=#d3869b
 palette = 14=#8ec07c
 palette = 15=#ebdbb2
 
-background-opacity = 0.6
+background-opacity = 0.4
+
+background-blur = macos-glass-regular
 
 window-padding-x = 4
 window-padding-y = 2
