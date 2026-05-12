@@ -56,7 +56,7 @@ brew "sqlite"
 brew "libyaml"
 brew "libgit2"
 brew "libuv"
-brew "pkg-config"
+brew "pkgconf"
 
 # ==============================================================================
 # DATABASES (keep if you actually use them)
