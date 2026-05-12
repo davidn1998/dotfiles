@@ -1,4 +1,3 @@
-export DOTFILES="$HOME/dotfiles"
 export ZSH_CONFIG="$DOTFILES/zsh"
 
 set -o noclobber

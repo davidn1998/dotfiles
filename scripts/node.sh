@@ -29,6 +29,9 @@ fi
 echo "📦 Using Node LTS..."
 nvm use --lts
 
+echo "📌 Setting LTS as default..."
+nvm alias default "lts/*"
+
 # ---------------------------------------------------------------------------
 # Enable corepack (yarn / pnpm)
 # ---------------------------------------------------------------------------

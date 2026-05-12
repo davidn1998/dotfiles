@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 echo "🍎 macOS setup starting..."
-
-# Install Homebrew if missing
-if ! command -v brew >/dev/null 2>&1; then
-  echo "📦 Installing Homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-# Load brew environment
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-echo "📦 Installing Brew bundle..."
-brew bundle --cleanup --file="$DOTFILES_DIR/mac/Brewfile"
-
+bash "$DOTFILES_DIR/scripts/macos.sh"
 echo "✅ macOS setup complete"
