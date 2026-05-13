@@ -19,11 +19,11 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- =========================
 
 keymap.set("n", "<leader>ee", function()
-  require("neo-tree.command").execute({ toggle = true })
+	require("neo-tree.command").execute({ toggle = true })
 end, { desc = "Toggle Neo-tree" })
 
 keymap.set("n", "<leader>ef", function()
-  require("neo-tree.command").execute({ reveal = true })
+	require("neo-tree.command").execute({ reveal = true })
 end, { desc = "Reveal file in Neo-tree" })
 
 -- =========================
@@ -42,11 +42,11 @@ keymap.set("n", "zR", "zR", { desc = "Open all folds" })
 
 local ok, ufo = pcall(require, "ufo")
 if ok then
-  keymap.set("n", "<leader>zM", function()
-    ufo.closeAllFolds()
-  end, { desc = "UFO: Close all folds" })
+	keymap.set("n", "<leader>zM", function()
+		ufo.closeAllFolds()
+	end, { desc = "UFO: Close all folds" })
 
-  keymap.set("n", "<leader>zR", function()
-    ufo.openAllFolds()
-  end, { desc = "UFO: Open all folds" })
+	keymap.set("n", "<leader>zR", function()
+		ufo.openAllFolds()
+	end, { desc = "UFO: Open all folds" })
 end

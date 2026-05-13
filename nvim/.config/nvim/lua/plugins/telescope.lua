@@ -1,6 +1,6 @@
 return {
 	{
-		"nvim-telescope/telescope.nvim",
+		"nvim-telescope/telescope.nvim", -- Fuzzy finder (files, grep, buffers)
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{

@@ -1,5 +1,5 @@
 return {
-	"folke/flash.nvim",
+	"folke/flash.nvim", -- Search and jump with highlighted patterns
 	event = "VeryLazy",
 	opts = {
 		modes = {
