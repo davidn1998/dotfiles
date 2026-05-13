@@ -14,6 +14,5 @@ stow -R commit
 stow -R tmux
 stow -R starship
 stow -R ghostty
-stow -R luarc
 
 echo "✅ Dotfiles linked"
