@@ -22,3 +22,8 @@ source "$(brew --prefix)/share/zsh-autopair/autopair.zsh"
 # Syntax highlighting (MUST be last)
 # --------------------------------------------
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# --------------------------------------------
+# Alias suggestion (zsh-you-should-use)
+# --------------------------------------------
+source "$(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh"
