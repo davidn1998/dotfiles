@@ -26,21 +26,31 @@ fi
 echo ""
 
 # ---------------------------
-# 2. Node (nvm + LTS)
+# 2. Tmux plugin manager
+# ---------------------------
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+  echo "📦 Installing tmux TPM..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+echo ""
+
+# ---------------------------
+# 3. Node (nvm + LTS)
 # ---------------------------
 bash scripts/node.sh
 
 echo ""
 
 # ---------------------------
-# 3. Dotfiles linking
+# 4. Dotfiles linking
 # ---------------------------
 bash scripts/stow.sh
 
 echo ""
 
 # ---------------------------
-# 4. Validation
+# 5. Validation
 # ---------------------------
 echo "🔍 Verifying install..."
 
