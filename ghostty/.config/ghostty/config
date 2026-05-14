@@ -35,8 +35,8 @@ font-family = Fira Code
 font-size = 13
 
 # Natural text editing
-keybind = alt+left=move_one_word_left
-keybind = alt+right=move_one_word_right
-keybind = alt+backspace=delete_one_word_left
-keybind = super+left=move_beginning_of_line
-keybind = super+right=move_end_of_line
+keybind = alt+left=text:\x1bb
+keybind = alt+right=text:\x1bf
+keybind = alt+backspace=text:\x1b\x7f
+keybind = super+left=text:\x01
+keybind = super+right=text:\x05
