@@ -23,7 +23,7 @@ palette = 14=#8ec07c
 palette = 15=#ebdbb2
 
 # Liquid glass effect
-background-opacity = 0.4
+background-opacity = 0.2
 background-blur = macos-glass-regular
 
 window-padding-x = 4
